@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Pac-Man</title>
-<style>*{margin:0;padding:0}html,body{overflow:hidden;background:#000}canvas{display:block}</style>
+  meta charset="UTF-8">
+  <title>Pac-Man</title>
+  <style>
+    body { background: #000; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+    canvas { border: 2px solid #2121DE; }
+   id="ui" { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); color: white; font-family: monospace; font-size: 24px; text-align: center; z-index: 10; }
+   id="lives" { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); color: yellow; font-family: monospace; font-size: 24px; z-index: 10; }
+  </style>
 </head>
-<body><canvas id="c"></canvas>
-<script src="src/maze.js"></script>
-<script src="src/ghost.js"></script>
-<script src="src/pacman.js"></script>
-<script src="src/input.js"></script>
-<script src="src/config.json" type="application/json" id="cfg"></script>
-<script src="src/game.js"></script>
+<body>
+  <div id="ui">Score: <span id="score"></span></div>
+  <canvas id="gameCanvas" width="576" height="624"></canvas>
+  <div id="lives">Â®“†Â±fÂ±d</div>
+  <script src="src/config.js"></script>
+  <script src="src/gehts.js"></script>
+  <script src="src/input.js"></script>
+  <script src="src/pacman.js"></script>
+  <script src="src/maze.js"></script>
+  <script src="src/game.js"></script>
 </body>
 </html>
