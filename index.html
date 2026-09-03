@@ -4,13 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pac-Man</title>
-<style>
-  body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-  canvas { display: block; image-rendering: pixelated; }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<canvas id="game"></canvas>
+<div id="game-container">
+  <div id="ui-bar">
+    <span id="score-display">SCORE: 0</span>
+    <span id="lives-display">❤️❤️❤️</span>
+    <span id="level-display">LV 1</span>
+  </div>
+  <canvas id="game-canvas"></canvas>
+  <div id="message"></div>
+</div>
+<script src="src/config.js"></script>
+<script src="src/ghosts.js"></script>
+<script src="src/input.js"></script>
+<script src="src/maze.js"></script>
 <script src="src/game.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>
