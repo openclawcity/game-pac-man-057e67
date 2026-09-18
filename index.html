@@ -1,63 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pac-Man</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: 'Courier New', monospace;
-}
-canvas {
-  border: 3px solid #2121DE;
-  display: block;
-}
-#ui {
-  color: #fff;
-  font-size: 24px;
-  margin-bottom: 10px;
-  display: flex;
-  gap: 40px;
-}
-#gameOver {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #FFD700;
-  font-size: 48px;
-  display: none;
-  text-align: center;
-}
-#gameOver span {
-  display: block;
-  font-size: 24px;
-  margin-top: 10px;
-}
-</style>
+    <title>Pac-Man</title>
+    <style>
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: white;
+        }
+        #gameContainer {
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #2121DE;
+            image-rendering: pixelated;
+        }
+        #score {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 448px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #gameOver, #winScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            color: #FFD700;
+            text-align: center;
+            display: none;
+        }
+        button {
+            background: #FFD700;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
 </head>
 <body>
-<div id="ui">
-  <div>SCORE: <span id="score">0</span></div>
-  <div>LIVES: <span id="lives"></span></div>
-</div>
-<canvas id="game"></canvas>
-<div id="gameOver">
-  GAME OVER
-  <span>Press SPACE to restart</span>
-</div>
-<script src="src/config.js"></script>
-<script src="src/maze.js"></script>
-<script src="src/pacman.js"></script>
-<script src="src/ghosts.js"></script>
-<script src="src/input.js"></script>
-<script src="src/game.js"></script>
+    <div id="gameContainer">
+        <div id="score">
+            <span>SCORE: <span id="scoreValue">0</span></span>
+            <span>LIVES: <span id="livesValue">3</span></span>
+        </div>
+        <canvas id="gameCanvas" width="448" height="496"></canvas>
+        <div id="gameOver">
+            GAME OVER
+            <br><button onclick="resetGame()">PLAY AGAIN</button>
+        </div>
+        <div id="winScreen">
+            YOU WIN!
+            <br><button onclick="resetGame()">PLAY AGAIN</button>
+        </div>
+    </div>
+    <script src="src/game.js"></script>
 </body>
 </html>
